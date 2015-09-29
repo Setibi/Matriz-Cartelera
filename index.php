@@ -20,7 +20,30 @@
 
     </div>
         
-    <div id='contenido'></div>
+    <div id='contenido'>
+        
+        <?php
+
+            // Array de la cartelera
+
+            include('cartelera.php');
+
+            // Inicio de variable de sesion
+
+            session_start();
+
+            //Variable de sesion con el array de cine
+
+            $_SESSION['array'] = $cine;
+
+            //Variable de sesion que hace de puntero
+
+            $_SESSION['i'] = 0;
+
+
+        ?>
+
+    </div>
     
 
 </body>

@@ -1,21 +1,28 @@
 
 <?php
 
-include('cartelera.php');
+session_start();
 
-// Resetea el puntero, empieza otra vez en paso uno
+$cine = $_SESSION['array'];
 
-reset($cine);
+	// Resetea el puntero, empieza otra vez en paso uno
 
-// Muestro la posicion actual
+	reset($cine);
 
-echo  "<p class='listado'>Primer Valor: " . current(current($cine)) . "</p>";
+	// Muestro el contenido
 
-echo  "<p class='listado'>Contenido Fila: ";
+	echo  "<p class='listado'>Primer Valor: " . current(current($cine)) . "</p>";
 
-foreach (current($cine) as $key => $value) {
-	 
-	 echo $value. " ";
-}
+	echo  "<p class='listado'>Contenido Fila: ";
 
-echo "</p>";
+		foreach (current($cine) as $key => $value) {
+			 
+			 echo $value. " ";
+		};
+
+	echo "</p>";
+
+	// Pongo a 0 el valor de la variable de puntero
+
+	$_SESSION['i'] = key(current($cine));
+

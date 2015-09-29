@@ -1,6 +1,10 @@
 <?php
 
-include('cartelera.php');
+session_start();
+
+$cine = $_SESSION['array'];
+
+// Recorro todo el array para mostrar sus valores
 
 for($i=0;$i<count($cine);$i++){
 

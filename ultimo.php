@@ -1,16 +1,25 @@
 <?php
 
-include('cartelera.php');
+session_start();
 
-// Muestro la posicion actual
+$cine = $_SESSION['array'];
 
-echo  "<p class='listado'>Ultimo Valor: " . current(end($cine)) . "</p>";
+	// Muestro el contenido del ultimo valor de la matriz
 
-echo  "<p class='listado'>Contenido Fila: ";
+	echo  "<p class='listado'>Ultimo Valor: " . current(end($cine)) . "</p>";
 
-foreach (end($cine) as $key => $value) {
-	 
-	 echo $value. " ";
-}
+	echo  "<p class='listado'>Contenido Fila: ";
 
-echo "</p>";
+		foreach (end($cine) as $key => $value) {
+			 
+			 echo $value. " ";
+		};
+
+	echo "</p>";
+
+	// Indico a la variable de puntero que estoy en la ultima posicion
+
+	$_SESSION['i'] = count($cine)-2;
+
+
+

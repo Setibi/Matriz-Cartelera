@@ -17,30 +17,33 @@
     	<div class='link white' onclick="cargarContenido('anterior.php')">Ir al anterior</div><br/>
     	<div class='link white' onclick="cargarContenido('ultimo.php')">Ir al ultimo</div><br/>
     	<div class='link white' onclick="cargarContenido('listado.php')">Mostrar listado</div><br/>
+        <div class='link white' onclick="cargarContenido('formulario.php')">Añadir pelicula</div><br/>
+        <div class='link white' onclick="cargarContenido('eliminar.php')">Eliminar pelicula</div><br/>
 
     </div>
         
     <div id='contenido'>
         
         <?php
+                // Array de la cartelera
 
-            // Array de la cartelera
+                include('cartelera.php');
 
-            include('cartelera.php');
+                // Inicio de variable de sesion
 
-            // Inicio de variable de sesion
+                session_start();
 
-            session_start();
+                //Determina si la variable está definida y no es NULL
 
-            //Variable de sesion con el array de cine
+                if(!isset($_SESSION['array'])){ 
+                    $_SESSION['array']=$cine;
+                }
 
-            $_SESSION['array'] = $cine;
+                //Variable de sesion que hace de puntero
 
-            //Variable de sesion que hace de puntero
+                $_SESSION['i'] = 0;
 
-            $_SESSION['i'] = 0;
-
-
+            
         ?>
 
     </div>
